@@ -24,6 +24,6 @@ public class WidgetsPage extends BasePage {
     }
 
     public String sliderValue() {
-        return visible(sliderValue).getAttribute("value");
+        return visible(sliderValue).getDomProperty("value");
     }
 }
