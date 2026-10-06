@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Ошибки ожидания элемента",
+    "matchedStatuses": ["broken"],
+    "messageRegex": "(?s).*TimeoutException.*"
+  },
+  {
+    "name": "Ошибки проверки",
+    "matchedStatuses": ["failed"],
+    "messageRegex": "(?s).*AssertionError.*"
+  }
+]
