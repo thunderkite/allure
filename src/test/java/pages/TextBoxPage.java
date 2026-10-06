@@ -20,6 +20,7 @@ public class TextBoxPage extends BasePage {
     @Step("Открыть страницу Text Box")
     public void open() {
         driver.get("https://demoqa.com/text-box");
+        removeOverlays();
     }
 
     @Step("Заполнить форму Text Box")

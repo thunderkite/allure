@@ -20,6 +20,7 @@ public class AlertsPage extends BasePage {
     @Step("Открыть страницу Alerts")
     public void open() {
         driver.get("https://demoqa.com/alerts");
+        removeOverlays();
     }
 
     @Step("Отклонить окно подтверждения")
