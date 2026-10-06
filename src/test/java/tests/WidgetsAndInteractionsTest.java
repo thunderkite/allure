@@ -4,6 +4,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.InteractionsPage;
@@ -11,6 +12,7 @@ import pages.WidgetsPage;
 
 @Epic("Widgets and Interactions")
 @Feature("Slider and Drag and Drop")
+@Story("Взаимодействие с элементами интерфейса")
 public class WidgetsAndInteractionsTest extends BaseTest {
     @Test(description = "Slider: значение изменяется на заданное")
     @Severity(SeverityLevel.NORMAL)

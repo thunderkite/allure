@@ -3,6 +3,7 @@ package pages;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WidgetsPage extends BasePage {
@@ -16,14 +17,22 @@ public class WidgetsPage extends BasePage {
     @Step("Открыть страницу Slider")
     public void openSlider() {
         driver.get("https://demoqa.com/slider");
+        removeOverlays();
     }
 
     @Step("Установить значение слайдера")
     public void setSliderValue(String value) {
-        driver.executeScript("arguments[0].value = arguments[1]; arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", visible(slider), value);
+        ((JavascriptExecutor) driver).executeScript(
+                "const slider = arguments[0];" +
+                        "const value = arguments[1];" +
+                        "const valueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;" +
+                        "valueSetter.call(slider, value);" +
+                        "slider.dispatchEvent(new Event('input', { bubbles: true }));" +
+                        "slider.dispatchEvent(new Event('change', { bubbles: true }));",
+                visible(slider), value);
     }
 
     public String sliderValue() {
-        return visible(sliderValue).getAttribute("value");
+        return visible(sliderValue).getDomProperty("value");
     }
 }
