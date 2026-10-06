@@ -4,12 +4,14 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AlertsPage;
 
 @Epic("Alerts, Frame & Windows")
 @Feature("Alerts")
+@Story("Обработка браузерных диалогов")
 public class AlertsTest extends BaseTest {
     @Test(description = "Confirm: отмена отображает корректный результат")
     @Severity(SeverityLevel.MINOR)
