@@ -3,6 +3,7 @@ package pages;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WidgetsPage extends BasePage {
@@ -20,7 +21,7 @@ public class WidgetsPage extends BasePage {
 
     @Step("Установить значение слайдера")
     public void setSliderValue(String value) {
-        driver.executeScript("arguments[0].value = arguments[1]; arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", visible(slider), value);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].value = arguments[1]; arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", visible(slider), value);
     }
 
     public String sliderValue() {
